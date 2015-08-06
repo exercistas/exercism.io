@@ -10,7 +10,7 @@
           <% tracks.each do |t| %>
             <% if t.active? %>
               <li>
-                <a role="menuitem" tabindex="-1" href="http://help.exercism.io/getting-started-with-<%= t.slug %>.html">
+                <a role="menuitem" tabindex="-1" href="/languages/<%= t.slug %>">
                   <%= t.language %>
                 </a>
               </li>

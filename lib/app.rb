@@ -34,6 +34,7 @@ module ExercismWeb
       register Sinatra::Reloader
     end
 
+    use Routes::Languages
     use Routes::Static
     use Routes::Legacy
     use Routes::Main

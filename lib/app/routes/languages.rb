@@ -16,7 +16,7 @@ module ExercismWeb
         end
 
 				locals = {
-          problems: Presenters::Problems.new(track_id).track_problems,
+          problems: Presenters::Special::Problems.new(track_id).track_problems,
 		      language: Language.of(track_id),
           slug: track_id,
           active: active,

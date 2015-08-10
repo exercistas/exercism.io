@@ -2,6 +2,7 @@ module ExercismWeb
   module Routes
     {
       Core: 'core',
+      Languages: 'languages',
       Legacy: 'legacy',
       Main: 'main',
       OnboardingSteps: 'onboarding_steps',

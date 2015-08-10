@@ -1,4 +1,5 @@
 require_relative '../../test_helper'
+require_relative '../../tracks_helper'
 require 'app/presenters/tracks'
 
 class PresentersTracksTest < Minitest::Test

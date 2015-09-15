@@ -103,6 +103,47 @@ class UserTest < Minitest::Test
     refute TeamMembership.exists?(team: other_team, user: bob, inviter: alice), 'Unconfirmed TeamMembership was deleted.'
   end
 
+  def test_non_qualifying_comment_does_not_add_to_table
+    alice = User.create(username: 'alice')
+    fred = User.create(username: 'fred')
+    submission = Submission.create(user: alice, language: 'python', slug: 'one')
+    submission.reload
+    comment = Comment.create(user: alice, submission: submission, body: 'something')
+    alice.increment_five_a_day if comment.qualifying?
+    count = FiveADayCount.where(:user_id => alice.id).first
+    assert_nil count
+  end
+
+  def test_qualifying_comment_adds_to_table
+    alice = User.create(username: 'alice')
+    fred = User.create(username: 'fred')
+    submission = Submission.create(user: alice, language: 'python', slug: 'one')
+    submission.reload
+    comment = Comment.create(user: fred, submission: submission, body: 'something')
+    fred.increment_five_a_day if comment.qualifying?
+    count = FiveADayCount.where(:user_id => fred.id).first
+    assert_equal 1, count.total
+  end
+
+  def test_qualifying_comment_updates_single_record_per_user
+    alice = User.create(username: 'alice')
+    fred = User.create(username: 'fred')
+    submission1 = Submission.create(user: alice, language: 'python', slug: 'one')
+    submission2 = Submission.create(user: alice, language: 'ruby', slug: 'two')
+    submission1.reload
+    submission2.reload
+    comments = [Comment.create(user: fred, submission: submission1, body: 'something'),
+                Comment.create(user: fred, submission: submission1, body: 'something else'),
+                Comment.create(user: fred, submission: submission2, body: 'comment'),
+                Comment.create(user: fred, submission: submission2, body: 'other comment')]
+    comments.each do |comment|
+      fred.increment_five_a_day if comment.qualifying?
+    end
+    count = FiveADayCount.where(:user_id => fred.id).first
+    assert_equal 4, count.total
+    assert_equal 1, FiveADayCount.count
+  end
+
   private
 
   def create_submission(problem, attributes={})
@@ -110,6 +151,4 @@ class UserTest < Minitest::Test
     attributes.each { |key, value| submission[key] = value }
     submission
   end
-
 end
-

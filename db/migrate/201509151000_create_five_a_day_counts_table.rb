@@ -7,6 +7,6 @@ class CreateFiveADayCountsTable < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :five_a_day_counts, [:user_id, :total], unique: true
+    add_index :five_a_day_counts, [:user_id, :total]
   end
 end

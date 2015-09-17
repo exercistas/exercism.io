@@ -14,13 +14,9 @@ class CommentTest < Minitest::Test
 
   def test_is_qualifying
     submission.reload
-    comment = Comment.create(user: fred, submission: submission, body: 'something')
-    assert comment.qualifying?
-  end
-
-  def test_is_not_qualifying
-    submission.reload
-    comment = Comment.create(user: alice, submission: submission, body: 'something')
-    refute comment.qualifying?
+    qualifying_comment = Comment.create(user: fred, submission: submission, body: 'something')
+    non_qualifying_comment = Comment.create(user: alice, submission: submission, body: 'something')
+    assert qualifying_comment.qualifying?
+    refute non_qualifying_comment.qualifying?
   end
 end

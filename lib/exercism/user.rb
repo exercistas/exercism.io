@@ -104,10 +104,10 @@ class User < ActiveRecord::Base
   end
 
   def increment_five_a_day
-    if FiveADayCount.exists?(["user_id = ? and DATE(created_at) = ?", self.id, Date.today])
-      FiveADayCount.where(["user_id = ? and DATE(created_at) = ?", self.id, Date.today]).first.increment!(:total)
+    if FiveADayCount.exists?(["user_id = ? and day = ?", self.id, Date.today])
+      FiveADayCount.where(["user_id = ? and day = ?", self.id, Date.today]).first.increment!(:total)
     else
-      FiveADayCount.create(user_id: self.id, total: 1)
+      FiveADayCount.create(user_id: self.id, total: 1, day: Date.today)
     end
   end
 

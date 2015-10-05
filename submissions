@@ -1,0 +1,1525 @@
+select username, id from users where id = 9 and id = 41;
+select username, id from users where id = 9 or id = 41;
+select username, id from users where id != 9 or id != 41;
+select username, id from users where id != 9 AND id != 41;
+\d+ comments
+\d+ user_exercises
+\d submissions
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+    n.user_id AS nitpicker, a.user_id AS author, a.language, a.slug, n.is_nitpicker
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id <> 9
+      AND a.user_id <> 9
+      AND c.user_id <> 9 AND c.user_id <> 1
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY s.nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+    n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.language, a.slug, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id <> 9
+      AND a.user_id <> 9
+      AND c.user_id <> 9 AND c.user_id <> 1
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY s.nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+    n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.language, a.slug, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id <> 9
+      AND a.user_id <> 9
+      AND c.user_id <> 9 AND c.user_id <> 1
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY random()
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+    n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.language, a.slug, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id <> 9
+      AND a.user_id <> 9
+      AND c.user_id <> 9 AND c.user_id <> 1
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY random()
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+    n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.language, a.slug, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 9
+      AND a.user_id <> 9
+      AND c.user_id <> 9 AND c.user_id <> 1
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY random()
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+    n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.language, a.slug, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 9
+      AND a.user_id <> 9
+      AND c.user_id <> 9 AND c.user_id <> 1
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY random()
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+    n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.language, a.slug, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 9
+      AND a.user_id <> 9
+      AND c.user_id <> 9 AND c.user_id <> 1
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+    n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.language, a.slug, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 9
+      AND a.user_id <> 9
+      AND c.user_id <> 9 AND c.user_id <> 1
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+    n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.language, a.slug, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 9
+      AND a.user_id <> 9
+      AND c.user_id <> 9 AND c.user_id <> 1
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count DESC
+LIMIT 5;
+\d submissions
+\d+ comments
+\d user_exercies
+\d user_exercises
+\d comments
+\d submissions
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+    n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.language, a.slug, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 9
+      AND a.user_id <> 9
+      AND c.user_id <> 9 AND c.user_id <> 1
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+    n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.language, a.slug, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 9
+      AND a.user_id <> 9
+      AND c.user_id <> 9 AND c.user_id <> 1
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+    n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.language, a.slug, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 29
+      AND a.user_id <> 29
+      AND c.user_id <> 29 AND c.user_id <> 1
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+\d+ user_exercises
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+    n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.language, a.slug, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 29
+      AND a.user_id <> 29
+      AND c.user_id <> 29
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+class FiveADayCount < ActiveRecord::Base
+  def initialize
+    @user_id = 29 # use 9 or 29 for testing
+    @minus_count = count
+  end
+  def count
+    sql = "select total
+           from five_a_day_counts
+           where user_id = #{@user_id}"
+    minus_count = ActiveRecord::Base.connection.execute(sql).field_values("total").first
+    if minus_count.nil?
+      minus_count = 0
+    else
+      minus_count
+    end
+  end
+  def exercises_list
+    @exercises_list ||= ActiveRecord::Base.connection.execute(exercises_list_sql)
+  end
+private
+  def exercises_list_sql
+    <<-SQL
+      SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+          n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id, a.language, a.slug, s.nit_count
+          FROM user_exercises n
+          INNER JOIN user_exercises a ON n.user_id <> a.user_id
+          INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+          INNER JOIN comments c ON s.id = c.submission_id
+          WHERE a.archived = false
+            AND n.is_nitpicker = true
+            AND n.user_id = #{@user_id}
+            AND a.user_id <> #{@user_id}
+            AND c.user_id <> #{@user_id}
+            AND a.language = n.language AND a.slug = n.slug
+            AND a.last_activity_at > (NOW()-interval '730 days')) AS exercises  # for testing
+      ORDER BY s.nit_count ASC  # might use last activity with type of activity  in console/pry use 720
+      LIMIT (5 - #{@minus_count});       # or last_iteration_at                  and a.updated_at
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 29
+      AND a.user_id <> 29
+      AND c.user_id <> 29
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+      SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+          n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+          FROM user_exercises n
+          INNER JOIN user_exercises a ON n.user_id <> a.user_id
+          INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+          INNER JOIN comments c ON s.id = c.submission_id
+          WHERE a.archived = false
+            AND n.is_nitpicker = true
+            AND n.user_id = #{@user_id}
+            AND a.user_id <> #{@user_id}
+            AND c.user_id <> #{@user_id}
+            AND a.language = n.language AND a.slug = n.slug
+            AND a.last_activity_at > (NOW()-interval '730 days')) AS exercises
+      ORDER BY nit_count ASC
+      LIMIT (5 - #{@minus_count});
+    SQL
+  end
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 29
+      AND a.user_id <> 29
+      AND c.user_id <> 29
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 29
+      AND a.user_id <> 29
+      AND c.user_id <> 29
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT username, id FROM users WHERE id = 14;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 29
+      AND a.user_id <> 29
+      AND c.user_id <> 29
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+exit
+\q
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 29
+      AND a.user_id <> 29
+      AND c.user_id <> 29
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT username, id FROM users WHERE id = 29;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 29
+      AND a.user_id <> 29
+      AND c.user_id <> 29
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 29
+      AND a.user_id <> 29
+      AND c.user_id <> 29
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 6;
+SELECT username, id FROM users WHERE id = 29;
+\d submissions
+\d
+\d five_a_day_counts
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 6
+      AND a.user_id <> 6
+      AND c.user_id <> 6
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 42
+      AND a.user_id <> 42
+      AND c.user_id <> 42
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+\q
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 42
+      AND a.user_id <> 42
+      AND c.user_id <> 42
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 29
+      AND a.user_id <> 29
+      AND c.user_id <> 29
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+\q
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 6
+      AND a.user_id <> 6
+      AND c.user_id <> 6
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 29
+      AND a.user_id <> 29
+      AND c.user_id <> 29
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 29
+      AND a.user_id <> 29
+      AND c.user_id <> 29
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+\q
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 29
+      AND a.user_id <> 29
+      AND c.user_id <> 29
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+\d user_exercises
+\d submissions
+\d comments
+\q
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 41
+      AND a.user_id <> 41
+      AND c.user_id <> 41
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+select id, username from users
+;
+select id, username from users where id = 41;
+select id, username from users order by id;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 46
+      AND a.user_id <> 46
+      AND c.user_id <> 46
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+\d users
+\d user_exercises
+select id, username, is_nitpicker FROM users inner join user_exercises where nitpicker = true order by username;
+select id, username, is_nitpicker FROM users inner join user_exercises on id = user_id  where nitpicker = true order by username;
+select u.id, username, ux.is_nitpicker FROM users u inner join user_exercises ux on u.id = user_id  where nitpicker = true order by username;
+select u.id, username, ux.is_nitpicker FROM users u inner join user_exercises ux on u.id = user_id  where is_nitpicker = true order by username;
+select distinct(u.id) u.id, username, is_nitpicker FROM users u inner join user_exercises ux on u.id = user_id  where is_nitpicker = true order by username;
+select distinct(u.id), username, is_nitpicker FROM users u inner join user_exercises ux on u.id = user_id  where is_nitpicker = true order by username;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 11
+      AND a.user_id <> 11
+      AND c.user_id <> 11
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 40
+      AND a.user_id <> 40
+      AND c.user_id <> 40
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+select distinct(u.id), username, is_nitpicker FROM users u inner join user_exercises ux on u.id = user_id  where is_nitpicker = true order by username;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 12
+      AND a.user_id <> 12
+      AND c.user_id <> 12
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 12
+      AND a.user_id <> 12
+      AND c.user_id <> 12
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 20
+      AND a.user_id <> 20
+      AND c.user_id <> 20
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+\d comments
+\d commentsSELECT * FROM (SELECT DISTINCT ON (a.user_id)
+     n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 33
+      AND a.user_id <> 33
+      AND c.user_id <> 33
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 33
+      AND a.user_id <> 33
+      AND c.user_id <> 33
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+select distinct(u.id), username, is_nitpicker FROM users u inner join user_exercises ux on u.id = user_id  where is_nitpicker = true order by username;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 48
+      AND a.user_id <> 48
+      AND c.user_id <> 48
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+\d comments
+select distinct(u.id), username, is_nitpicker FROMusers u inner join user_exercises ux on u.id = user_id where is_nitpicker = true order by username;
+select distinct(u.id), username, is_nitpicker, COUNT(c.user_id) FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ex.user_id = c.user_id where is_nitpicker = true order by username;
+select distinct(u.id), username, is_nitpicker, COUNT(c.user_id) FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true order by username;
+select distinct(u.id), username, is_nitpicker, COUNT(c.user_id) FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true order by username group by u.id;
+select distinct(u.id), username, is_nitpicker, COUNT(c.user_id) FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true group by u.id order by username;
+select distinct(u.id), username, is_nitpicker, COUNT(c.user_id) FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true order by username;
+select distinct(u.id), username, is_nitpicker FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true order by username;
+select * from (select distinct(u.id), username, is_nitpicker, COUNT(c.user_id) FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true) as users order by u.id;
+select * from (select distinct(u.id), username, is_nitpicker, COUNT(c.user_id) FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true) as users group by u.id;
+select * from (select distinct(u.id), username, is_nitpicker, COUNT(c.user_id) FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true group by u.id) as users order by username;
+select * from (select distinct(u.id), u.username, ux.is_nitpicker, COUNT(c.user_id) FROM users u inner join user_exercises ux on u.id =ux.user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true group by u.id) as users order by username;
+select distinct(u.id), u.username, ux.is_nitpicker, COUNT(c.user_id) FROM users u inner join user_exercises ux on u.id =ux.user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true group by u.id order by username;
+select distinct(u.id), u.username, ux.is_nitpicker, COUNT(c.user_id) FROM users u inner join user_exercises ux on u.id =ux.user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true group by u.id group by ux.is_nitpicker order by username;
+select distinct(u.id), u.username, ux.is_nitpicker, COUNT(c.user_id) FROM users u inner join user_exercises ux on u.id =ux.user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true order by username group by ux.is_nitpicker;
+select distinct(u.id), u.username, ux.is_nitpicker, COUNT(c.user_id) FROM users u inner join user_exercises ux on u.id =ux.user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true group by ux.is_nitpicker order by username;
+select COUNT(c.user_id) from (select distinct(u.id), u.username, ux.is_nitpicker FROM users u inner join user_exercises ux on u.id =ux.user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true group by u.id) as users order by username;
+select COUNT(c.user_id) from (select distinct(u.id), u.username, ux.is_nitpicker FROM users u inner join user_exercises ux on u.id =ux.user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true group by ux.is_nitpicker) as users order by username;
+select distinct(u.id), username, is_nitpicker FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true order by username;
+select u.id, username, is_nitpicker, c.user_id FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true order by username;
+select distinct(u.id), username, is_nitpicker FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true order by username;
+select distinct(u.id), username, is_nitpicker FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true order by username;
+select u.id, username, is_nitpicker, c.user_id FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true order by use
+;
+select u.id, username, is_nitpicker, c.user_id FROM users u inner join user_exercises ux on u.id = user_id inner join comments c on ux.user_id = c.user_id where is_nitpicker = true order by username;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')
+      ORDER BY random()) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')
+      ORDER BY random(a.user_id)) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')
+      ORDER BY random("a.user_id")) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')
+      ORDER BY random("user_id")) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')
+      ORDER BY random(a."user_id")) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')
+      ORDER BY random("nit_count")) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) as author_user id, n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')
+      ) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id as author_user_id), n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')
+      ) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) as author_user_id, n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')
+      ) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+\d five_a_day_counts
+exit
+\q
+\d+
+select username, id from users order by id;
+\d+
+\d user_exercises;
+select distinct (user_id), language, slug, last_iteration_at
+;
+select distinct (user_id), language, slug, last_iteration_at; last_activity_at FROM user_exercises order by last_iteration_at;
+select distinct(user_id), language, slug, last_iteration_at; last_activity_at FROM user_exercises order by last_iteration_at;
+select distinct on (user_id), language, slug, last_iteration_at; last_activity_at FROM user_exercises order by last_iteration_at;
+select distinct on (user_id), language, slug, last_iteration_at, last_activity_at FROM user_exercises order by last_iteration_at;
+select distinct on (user_id) language, slug, last_iteration_at, last_activity_at FROM user_exercises order by last_iteration_at;
+select distinct on(user_id) language, slug, last_iteration_at, last_activity_at FROM user_exercises order by last_iteration_at;
+select distinct on(user_id) language, slug, last_iteration_at, last_activity_at FROM user_exercises order by user_id;
+select distinct on(user_id) user_id, language, slug, last_iteration_at, last_activity_at FROM user_exercises order by user_id;
+\d five_a_day_counts
+\d users
+\d user_exercises
+\d five_a_day_counts
+\d submissions
+\d user_exercises
+\d 
+ \q
+\d users
+ 
+exit
+exit
+\q
+\d user_exercises
+\d comments
+\d submission
+\d
+\d acls
+select * from acls limit 1;
+select * from acls a inner join user u on a.user_id = u.id limit 1;
+select * from acls a inner join users u on a.user_id = u.id limit 1;
+select * from acls;;
+select * from acls order by user_id;
+\d submissions
+\d exercises
+\d user_exercises
+\d comments
+select user_id, submission_id from comments where user_id = 2 and submission_id = 224;
+select user_id, submission_id from comments where submission_id = 224;
+\d acls
+ \q
+\d submission
+\d submissions
+select distinct on (s.user_id) s.user_exercise_id AS Sub_user_exercise_id, ux.user_id, s.language as Sub_Lang, ux.language, s.slug AS Sub_Slug, ux.slug, s.key AS sub_key, ux.key AS ue_key, ux.is_nitpicker, s.nit_count, s.update_at, ux.last_activity_at FROM submissions s INNER JOIN user_exercises ux on s.user_id = ux.user_id where ux.is_nitpicker = true;
+select distinct on (s.user_id) s.user_exercise_id AS Sub_user_exercise_id, ux.user_id, s.language as Sub_Lang, ux.language, s.slug AS Sub_Slug, ux.slug, s.key AS sub_key, ux.key AS ue_key, ux.is_nitpicker, s.nit_count, s.updated_at, ux.last_activity_at FROM submissions s INNER JOIN user_exercises ux on s.user_id = ux.user_id where ux.is_nitpicker = true;
+select distinct on (s.user_id) s.user_exercise_id AS Sub_user_exercise_id, ux.user_id, s.language as Sub_Lang, ux.language, s.slug AS Sub_Slug, ux.slug, s.key AS sub_key, ux.key AS ue_key, ux.is_nitpicker, s.nit_count, s.updated_at, ux.last_activity_at FROM submissions s INNER JOIN user_exercises ux on s.user_id = ux.user_id;
+select distinct on (s.user_id) s.user_exercise_id AS Sub_user_exercise_id, ux.user_id, s.language as Sub_Lang, ux.language, s.slug AS Sub_Slug, ux.slug, s.key AS sub_key, ux.key AS ue_key, ux.is_nitpicker, s.updated_at, ux.last_activity_at FROM submissions s INNER JOIN user_exercises ux on s.user_id = ux.user_id order by s.user_id;
+select distinct on (s.user_id) s.user_exercise_id AS Sub_user_exercise_id, ux.user_id, s.language as Sub_Lang, ux.language, s.slug AS Sub_Slug, ux.slug, s.key AS sub_key, ux.key AS ue_key, ux.is_nitpicker, s.updated_at, ux.last_activity_at FROM submissions s INNER JOIN user_exercises ux on s.user_id = ux.user_id where ux.user_id = s.user_id order by s.user_id ASC;
+select distinct on (s.user_id) s.user_exercise_id AS Sub_user_exercise_id, ux.user_id, s.language as Sub_Lang, ux.language, s.slug AS Sub_Slug, ux.slug, s.key AS sub_key, ux.key AS ue_key, ux.is_nitpicker, s.updated_at, ux.last_activity_at FROM submissions s INNER JOIN user_exercises ux on s.user_id = ux.user_id where ux.user_id = s.user_id AND s.language = ux.language AND s.slug = us.slug order by s.user_id ASC;
+select distinct on (s.user_id) s.user_exercise_id AS Sub_user_exercise_id, ux.user_id, s.language as Sub_Lang, ux.language, s.slug AS Sub_Slug, ux.slug, s.key AS sub_key, ux.key AS ue_key, ux.is_nitpicker, s.updated_at, ux.last_activity_at FROM submissions s INNER JOIN user_exercises ux on s.user_id = ux.user_id where ux.user_id = s.user_id AND s.language = ux.language AND s.slug = ux.slug order by s.user_id ASC;
+q
+select distinct on (s.user_id) s.user_exercise_id AS Sub_user_exercise_id, ux.user_id, s.language as Sub_Lang, ux.language, s.slug AS Sub_Slug, ux.slug, s.key AS sub_key, ux.key AS ue_key, ux.is_nitpicker, s.updated_at, ux.last_activity_at FROM submissions s INNER JOIN user_exercises ux on s.user_id = ux.user_id where ux.user_id = s.user_id AND s.language = ux.language AND s.slug = ux.slug order by s.user_id ASC;
+select distinct on (s.user_id) s.user_exercise_id AS Sub_user_exercise_id, ux.user_id, s.language as Sub_Lang, ux.language, s.slug AS Sub_Slug, ux.slug, s.key AS sub_key, ux.key AS ue_key, ux.is_nitpicker, s.updated_at, ux.last_activity_at FROM submissions s INNER JOIN user_exercises ux on s.user_id = ux.user_id where ux.user_id = s.user_id AND s.language = ux.language AND s.slug = ux.slug AND us.is_nitpicker = true AND s.key = ux.key, order by s.user_id ASC;
+select distinct on (s.user_id) s.user_exercise_id AS Sub_user_exercise_id, ux.user_id, s.language as Sub_Lang, ux.language, s.slug AS Sub_Slug, ux.slug, s.key AS sub_key, ux.key AS ue_key, ux.is_nitpicker, s.updated_at, ux.last_activity_at FROM submissions s INNER JOIN user_exercises ux on s.user_id = ux.user_id where ux.user_id = s.user_id AND s.language = ux.language AND s.slug = ux.slug AND us.is_nitpicker = true AND s.key = ux.key order by s.user_id ASC;
+select distinct on (s.user_id) s.user_exercise_id AS Sub_user_exercise_id, ux.user_id, s.language as Sub_Lang, ux.language, s.slug AS Sub_Slug, ux.slug, s.key AS sub_key, ux.key AS ue_key, ux.is_nitpicker, s.updated_at, ux.last_activity_at FROM submissions s INNER JOIN user_exercises ux on s.user_id = ux.user_id where ux.user_id = s.user_id AND s.language = ux.language AND s.slug = ux.slug AND ux.is_nitpicker = true AND s.key = ux.key order by s.user_id ASC;
+select distinct on (s.user_id) s.user_exercise_id AS Sub_user_exercise_id, ux.user_id, s.language as Sub_Lang, ux.language, s.slug AS Sub_Slug, ux.slug, s.key AS sub_key, ux.key AS ue_key, ux.is_nitpicker, s.updated_at, ux.last_activity_at FROM submissions s INNER JOIN user_exercises ux on s.user_id = ux.user_id where ux.user_id = s.user_id AND s.language = ux.language AND s.slug = ux.slug AND ux.is_nitpicker = true order by s.user_id ASC;
+select distinct on (s.user_id) s.user_exercise_id AS Sub_user_exercise_id, ux.user_id, s.language as Sub_Lang, ux.language, s.slug AS Sub_Slug, ux.slug, s.key AS sub_key, ux.key AS ue_key, ux.is_nitpicker, s.updated_at, ux.last_activity_at FROM submissions s INNER JOIN user_exercises ux on s.user_id <> ux.user_id where ux.user_id = s.user_id AND s.language = ux.language AND s.slug = ux.slug AND ux.is_nitpicker = true order by s.user_id ASC;
+select id, username from users order by id
+;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')
+      ORDER BY random()) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')
+      ) AS exercises
+GROUP BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')
+      ORDER BY random(a.user_id)) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.updated_at > (NOW()-interval '720 days')
+      ) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (a.user_id) n.user_id AS nitpicker, n.is_nitpicker, a.user_id AS author, u.username AS ex_author_name, a.id AS user_exercise_id, a.key AS key, a.language, a.slug, a.last_activity_at, s.nit_count
+    FROM user_exercises n
+    INNER JOIN user_exercises a ON n.user_id <> a.user_id
+    INNER JOIN users u ON u.id = a.user_id
+    INNER JOIN submissions s ON a.user_id = s.user_exercise_id
+    INNER JOIN comments c ON s.id = c.submission_id
+    WHERE a.archived = false
+      AND n.is_nitpicker = true
+      AND n.user_id = 28
+      AND a.user_id <> 28
+      AND c.user_id <> 28
+      AND a.language = n.language AND a.slug = n.slug
+      AND a.last_activity_at > (NOW()-interval '720 days')
+      ) AS exercises
+ORDER BY nit_count ASC
+LIMIT 5;
+select user_id, language, slug, last_activity_at, is_nitpicker from user_exercises where is_nitpicker = true order by user_id;
+select user_id, language, slug, last_activity_at, is_nitpicker from user_exercises;
+select user_id, u.username, language, slug, last_activity_at, is_nitpicker from user_exercises inner join users u on user_id = u.id;
+select user_id, language, slug from submissions where language = perl;
+select user_id, language, slug from submissions where language = pearl;
+select user_id, language, slug from submissions where language = perl5;
+select user_id, language, slug from submissions where language = "perl5";
+\d submissions
+select user_id, language, slug from submissions where key = 455a06da2ae28d1883fe15a6;
+select user_id, u.username, language, slug, key, last_activity_at, is_nitpicker from user_exercises inner join users u on user_id = u.id;
+\d users
+select ux.user_id, u.username, ux.language, ux.slug, ux.key, ux.last_activity_at, ux.is_nitpicker from user_exercises ux inner join users u on ux.user_id = u.id;
+select user_id, language, slug from submissions where user_id = 15;
+select user_id, language, slug, key from submissions where user_id = 15 order by language;
+select distinct on(user_id), is_nitpicker from user_exercises order by user_id;
+select distinct on(user_id) is_nitpicker from user_exercises order by user_id;
+select distinct on(user_id) user_id, is_nitpicker from user_exercises order by user_id;
+\d user_exercises
+select distinct on(user_id) user_id, is_nitpicker, last_activity_at from user_exercises order by user_id;
+select distinct on(user_id) user_id, language, slug, is_nitpicker, last_activity_at from user_exercises order by user_id;
+select  user_id, language, slug, is_nitpicker, last_activity_at from user_exercises order by user_id;
+select  user_id, u.username, is_nitpicker from user_exercises inner join users on u.id = user_id order by user_id;
+select  user_id, u.username, is_nitpicker from user_exercises inner join users u on u.id = user_id order by user_id;
+select distinct on(user_id) user_id, u.username, is_nitpicker from user_exercises inner join users on u.id = user_id order by user_id;
+select distinct on(user_id) user_id, u.username, is_nitpicker from user_exercises inner join users u on u.id = user_id order by user_id;
+select distinct on(user_id) user_id, u.username, is_nitpicker count(is_nipicker = false) from user_exercises inner join users u on u.id = user_id order by user_id;
+select distinct on(user_id) user_id, u.username, is_nitpicker count(is_nipicker) from user_exercises inner join users u on u.id = user_id where is_nitpicker = false order by user_id;
+select distinct on(user_id) user_id, u.username, is_nitpicker count(is_nitpicker) from user_exercises inner join users u on u.id = user_id where is_nitpicker = false order by user_id;
+select distinct on(user_id) user_id, u.username, is_nitpicker count(is_nitpicker) AS is_nitpicker_count from user_exercises inner join users u on u.id = user_id where is_nitpicker = false order by user_id;
+select distinct on(user_id) user_id, u.username, count(is_nitpicker) AS is_nitpicker_count from user_exercises inner join users u on u.id = user_id where is_nitpicker = false order by user_id;
+select count(is_nitpicker) AS is_nitpicker_count distinct on(user_id) user_id, u.username from user_exercises inner join users u on u.id = user_id where is_nitpicker = false order by user_id;
+select count(is_nitpicker) AS is_nitpicker_count  user_id, u.username from user_exercises inner join users u on u.id = user_id where is_nitpicker = false order by user_id;
+select count(is_nitpicker) AS is_nitpicker_count, user_id, u.username from user_exercises inner join users u on u.id = user_id where is_nitpicker = false order by user_id;
+select count(is_nitpicker) AS is_nitpicker_count, user_id, u.username from user_exercises inner join users u on u.id = user_id where is_nitpicker = false;
+select count(is_nitpicker) AS is_nitpicker_count, user_id, u.  username from user_exercises inner join users u on u.id = user_id where is_nitpicker = false;
+\d comment
+\d comments
+\d submissions
+select s.user_id as submitter, eu.user_id as subs_eu_id, s.language, s.slug, s.updated_at as sub_date, eu.last_activity_at as eu_date, from submissions s inner join user_exercises eu on s.user_id = eu.user_id AND s.language = eu.language AND s.slug = eu.slug order by s.user_id;
+select s.user_id as submitter, eu.user_id as subs_eu_id, s.language, s.slug, s.updated_at as sub_date, eu.last_activity_at as eu_date from submissions s inner join user_exercises eu on s.user_id = eu.user_id AND s.language = eu.language AND s.slug = eu.slug order by s.user_id;
+select s.user_id as submitter, eu.user_id as subs_eu_id, s.language, s.slug, s.updated_at as sub_date, eu.last_activity_at as eu_date, eu.last_activity, eu.updated_at as eu_la_date from submissions s inner join user_exercises eu on s.user_id = eu.user_id AND s.language = eu.language AND s.slug = eu.slug order by s.user_id;
+select s.user_id as submitter, eu.user_id as subs_eu_id, s.language, s.slug, s.updated_at as sub_date, eu.last_activity_at as eu_date, eu.last_activity, eu.updated_at as eu_ua_date from submissions s inner join user_exercises eu on s.user_id = eu.user_id AND s.language = eu.language AND s.slug = eu.slug order by s.user_id;
+\d user_exercises
+SELECT a.user_id, a.language, a.slug, s.user_id, u.username, s.language, s.slug from acls a inner join submissions s on a.user_id <> s.user_id inner join users u on s.user_id = u.id where a.language = s.language AND a.slug = s.slug;
+SELECT a.user_id as nitpicker, a.language, a.slug, s.user_id as author_id, u.username as author, s.language, s.slug from acls a inner join submissions s on a.user_id <> s.user_id inner join users u on s.user_id = u.id where a.language = s.language AND a.slug = s.slug;
+SELECT a.user_id as nitpicker, a.language, a.slug, s.user_id as author_id, u.username as author, s.language, s.slug from acls a inner join submissions s on a.user_id <> s.user_id inner join users u on s.user_id = u.id where a.language = s.language AND a.slug = s.slug order by a.user_id;
+select id, username where id = 2;
+select id, username from users where id = 2;
+\d acls
+select a.user_id, a.language, a.slug from acls a inner join users u on u.id = a.user_id where u.id =2;
+select a.user_id, a.language, a.slug from acls a inner join users u on u.id = a.user_id where u.id =2 order by a.language;
+select a.user_id, a.language, a.slug from acls a inner join users u on u.id = a.user_id where u.id =9 order by a.language;
+SELECT a.user_id as nitpicker, a.language, a.slug, s.user_id as author_id, u.username as author, s.language, s.slug from acls a inner join submissions s on a.user_id <> s.user_id inner join users u on s.user_id = u.id where a.language = s.language AND a.slug = s.slug order by a.user_id;
+SELECT a.user_id as np, s.user_id as author_id, u.username as author, s.language, s.slug s.nit_count, s.key, ue.last_activity_at from acls a inner join submissions s on a.user_id <> s.user_id inner join user_exercises ue on s.user_exercise_id = eu.id inner join users u on s.user_id = u.id where a.language = s.language AND a.slug = s.slug order by a.user_id;
+SELECT a.user_id as np, s.user_id as author_id, u.username as author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at from acls a inner join submissions s on a.user_id <> s.user_id inner join user_exercises ue on s.user_exercise_id = eu.id inner join users u on s.user_id = u.id where a.language = s.language AND a.slug = s.slug order by a.user_id;
+SELECT a.user_id as np, s.user_id as author_id, u.username as author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at from acls a inner join submissions s on a.user_id <> s.user_id inner join user_exercises ue on s.user_exercise_id = ue.id inner join users u on s.user_id = u.id where a.language = s.language AND a.slug = s.slug order by a.user_id;
+SELECT a.user_id as np, s.user_id as author_id, u.username as author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at, ue.last_activity from acls a inner join submissions s on a.user_id <> s.user_id inner join user_exercises ue on s.user_exercise_id = ue.id inner join users u on s.user_id = u.id where a.language = s.language AND a.slug = s.slug order by a.user_id;
+SELECT a.user_id as np, s.user_id as author_id, u.username as author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at from acls a inner join submissions s on a.user_id <> s.user_id inner join user_exercises ue on s.user_exercise_id = ue.id inner join users u on s.user_id = u.id inner join comments c on s.id = c.submission_id where a.language = s.language AND a.slug = s.slug AND a.user_id <> c.user_id order by a.user_id;
+SELECT a.user_id as np, s.user_id as author_id, u.username as author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at from acls a inner join submissions s on a.user_id <> s.user_id inner join user_exercises ue on s.user_exercise_id = ue.id inner join users u on s.user_id = u.id inner join comments c on s.id = c.submission_id where a.language = s.language AND a.slug = s.slug AND a.user_id <> c.user_id order by a.user_id limit 5;
+SELECT a.user_id as np, s.user_id as author_id, u.username as author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at from acls a inner join submissions s on a.user_id <> s.user_id inner join user_exercises ue on s.user_exercise_id = ue.id inner join users u on s.user_id = u.id inner join comments c on s.id = c.submission_id where a.language = s.language AND a.slug = s.slug AND a.user_id <> c.user_id order by s,nit_count limit 5;
+SELECT * FROM (SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at FROM acls a 
+INNER JOIN submissions s ON a.user_id <> s.user_id INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id INNER JOIN users u ON s.user_id = u.id INNER JOIN comments c ON s.id = c.submission_id WHERE a.language = s.language AND a.slug = s.slug AND a.user_id <> c.user_id AND ue.last_activity_at > (NOW()-interval '730 days')) AS exercises ORDER BY s.nit_count ASC LIMIT 5;
+\d submissions
+SELECT * FROM (SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at FROM acls a 
+INNER JOIN submissions s ON a.user_id <> s.user_id INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id INNER JOIN users u ON s.user_id = u.id INNER JOIN comments c ON s.id = c.submission_id WHERE a.language = s.language AND a.slug = s.slug AND a.user_id <> c.user_id AND ue.last_activity_at > (NOW()-interval '730 days')) AS exercises ORDER BY nit_count ASC LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at FROM acls a 
+INNER JOIN submissions s ON a.user_id <> s.user_id INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id INNER JOIN users u ON s.user_id = u.id INNER JOIN comments c ON s.id = c.submission_id WHERE a,user_id = 2, a.language = s.language AND a.slug = s.slug AND a.user_id <> c.user_id AND ue.last_activity_at > (NOW()-interval ’730 days’)) AS exercises ORDER BY nit_count ASC LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at FROM acls a 
+INNER JOIN submissions s ON a.user_id <> s.user_id INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id INNER JOIN users u ON s.user_id = u.id INNER JOIN comments c ON s.id = c.submission_id WHERE a.language = s.language AND a.slug = s.slug AND a.user_id = 2 AND c.user_id <> 2 AND ue.last_activity_at > (NOW()-interval ’730 days’)) AS exercises ORDER BY nit_count ASC LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at FROM acls a 
+INNER JOIN submissions s ON a.user_id <> s.user_id INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id INNER JOIN users u ON s.user_id = u.id INNER JOIN comments c ON s.id = c.submission_id WHERE a.language = s.language AND a.slug = s.slug AND a.user_id = 2 AND c.user_id <> 2 AND ue.last_activity_at > (NOW()-interval '730 days')) AS exercises ORDER BY nit_count ASC LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at FROM acls a 
+INNER JOIN submissions s ON a.user_id <> s.user_id INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id INNER JOIN users u ON s.user_id = u.id INNER JOIN comments c ON s.id = c.submission_id WHERE a.language = s.language AND a.slug = s.slug AND a.user_id = 2 AND c.user_id <> 2 AND ue.last_activity_at > (NOW()-interval '30 days')) AS exercises ORDER BY nit_count ASC LIMIT 5;
+\d submissions
+SELECT id, user_id, language, slug, user_exercises_id from submissions limit 1;
+SELECT id, user_id, language, slug, user_exercise_id from submissions limit 1;
+\d user_exercises
+ SELECT * FROM (SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at FROM acls a 
+INNER JOIN submissions s ON a.user_id <> s.user_id INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id INNER JOIN users u ON s.user_id = u.id INNER JOIN comments c ON s.id = c.submission_id WHERE a.language = s.language AND a.slug = s.slug AND a.user_id = 2 AND c.user_id <> 2 AND ue.last_activity_at > (NOW()-interval '730 days')) AS exercises ORDER BY nit_count ASC LIMIT 5;
+select * from users limit 1;
+select * from users order by random() limit 1;
+\d+ users
+\q
+\d acls
+\d comments
+\d submissions
+select id, user_id, language, slug, nit_count, key from submissions where key = 777fbe36fbfd13ee94b4a39c;
+select id, user_id, language, slug, nit_count, key from submissions where key = "777fbe36fbfd13ee94b4a39c";
+select id, user_id, language, slug, nit_count, key from submissions where user_id = 17;
+\d acls
+\d comments
+\d user_exercises
+select id, user_id, language, slug where user_id = 9;
+select id, user_id, language, slug from user_exercises where user_id = 9;
+\d acls
+\d submissions
+\q
+\d comments
+ SELECT * FROM (SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at 
+FROM acls a 
+INNER JOIN submissions s ON a.user_id <> s.user_id 
+INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id 
+INNER JOIN users u ON s.user_id = u.id 
+INNER JOIN comments c ON s.id = c.submission_id 
+WHERE a.language = s.language 
+AND a.slug = s.slug 
+AND a.user_id <> c.user_id 
+AND ue.last_activity_at > (NOW()-interval ’730 days’)) AS exercises 
+ORDER BY nit_count ASC 
+LIMIT 5;
+ SELECT * FROM (SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at 
+FROM acls a 
+INNER JOIN submissions s ON a.user_id <> s.user_id 
+INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id 
+INNER JOIN users u ON s.user_id = u.id 
+INNER JOIN comments c ON s.id = c.submission_id 
+WHERE a.language = s.language 
+AND a.slug = s.slug 
+AND a.user_id <> c.user_id 
+AND ue.last_activity_at > (NOW()-interval '30 days')) AS exercises 
+ORDER BY nit_count ASC 
+LIMIT 5;
+ SELECT * FROM (SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at 
+FROM acls a 
+INNER JOIN submissions s ON 2 <> s.user_id 
+INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id 
+INNER JOIN users u ON s.user_id = u.id 
+INNER JOIN comments c ON s.id = c.submission_id 
+WHERE a.language = s.language 
+AND a.slug = s.slug 
+AND 2 <> c.user_id 
+AND ue.last_activity_at > (NOW()-interval '30 days')) AS exercises 
+ORDER BY nit_count ASC 
+LIMIT 5;
+ SELECT * FROM (SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at 
+FROM acls a 
+INNER JOIN submissions s ON a.user_id <> s.user_id 
+INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id 
+INNER JOIN users u ON s.user_id = u.id 
+INNER JOIN comments c ON s.id = c.submission_id 
+WHERE a.language = s.language 
+AND a.slug = s.slug 
+AND 2 <> c.user_id 
+AND ue.last_activity_at > (NOW()-interval '30 days')) AS exercises 
+ORDER BY nit_count ASC 
+LIMIT 5;
+ SELECT * FROM (SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at 
+FROM acls a 
+INNER JOIN submissions s ON a.user_id <> s.user_id 
+INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id 
+INNER JOIN users u ON s.user_id = u.id 
+INNER JOIN comments c ON s.id = c.submission_id 
+WHERE a.language = s.language 
+AND a.slug = s.slug 
+AND 2 <> c.user_id 
+AND ue.last_activity_at > (NOW()-interval '30 days')) AS exercises 
+ORDER BY nit_count ASC 
+LIMIT 5;
+SELECT * FROM (SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at 
+FROM acls a 
+INNER JOIN submissions s ON a.user_id <> s.user_id 
+INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id 
+INNER JOIN users u ON s.user_id = u.id 
+INNER JOIN comments c ON s.id = c.submission_id 
+WHERE a.user_id = 2
+AND a.language = s.language 
+AND a.slug = s.slug 
+AND a.user_id <> c.user_id 
+AND ue.last_activity_at > (NOW()-interval ’730 days’)) AS exercises 
+ORDER BY nit_count ASC 
+ LIMIT 5;
+\q
+\d five_a_day_counts
+select * from five_a_day_counts
+;
+select id, username from users where id = [5, 15, 29, 2, 33, 12];
+select id, username from users where id = (5, 15, 29, 2, 33, 12);
+select id, username from users where id IN (5, 15, 29, 2, 33, 12);
+SELECT * FROM 
+(SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at 
+FROM acls a 
+INNER JOIN submissions s ON a.user_id <> s.user_id 
+INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id 
+INNER JOIN users u ON s.user_id = u.id 
+INNER JOIN comments c ON s.id = c.submission_id 
+WHERE a.language = s.language 
+AND a.slug = s.slug 
+AND a.user_id = 2 
+AND c.user_id <> 2 
+AND ue.last_activity_at > (NOW()-interval '30 days')) AS exercises 
+ORDER BY nit_count ASC 
+LIMIT 5;
+SELECT * FROM 
+(SELECT DISTINCT ON (s.user_id) a.user_id AS np, s.user_id AS author_id, u.username AS author, s.language, s.slug, s.nit_count, s.key, ue.last_activity_at 
+FROM acls a 
+INNER JOIN submissions s ON a.user_id <> s.user_id 
+INNER JOIN user_exercises ue ON s.user_exercise_id = ue.id 
+INNER JOIN users u ON s.user_id = u.id 
+INNER JOIN comments c ON s.id = c.submission_id 
+WHERE a.language = s.language 
+AND a.slug = s.slug 
+AND a.user_id = 5 
+AND c.user_id <> 5 
+AND ue.last_activity_at > (NOW()-interval '30 days')) AS exercises 
+ORDER BY nit_count ASC 
+LIMIT 5;
+select * from users where id =99;
+\d acls
+\d
+select id, username from users;
+select id, username from users order by id;
+\d acls
+select * from acls order by user_id;
+SELECT user_id, COUNT (language, slug) FROM acls GROUP BY user_id;
+SELECT user_id, COUNT(language) FROM acls GROUP BY user_id;
+SELECT user_id, COUNT(language) FROM acls order by user_id;
+SELECT user_id, COUNT(language) FROM acls GROUP BY user_id order by user_id;
+SELECT user_id, COUNT(slug) FROM acls GROUP BY user_id order by user_id;
+select id, username from users where id IN (21, 22, 30)
+;
+select id, username from users where id IN (21, 22, 34)
+;
+select * from users where id =2;
+UPDATE users SET username = malvina Where id = 2;
+UPDATE users SET username = "malvina" Where id = 2;
+select username from users wheere id = 2;
+select key from users wheere id = 2;
+\d
+\d users
+select username from users where id=2;
+UPDATE users 
+SET username = "malvina" WHERE id = 2;
+UPDATE users 
+SET username = 'malvina' WHERE id = 2;
+select username from users where id=2;
+select ic, username from users order by id;
+select id, username from users order by id;
+\d
+d\ five_a_day_countss
+d\ five_a_day_counts
+\d five_a_day_counts
+select * from five_a_day_counts where userid = 2;
+select * from five_a_day_counts where user_id = 2;
+\d comments
+select * from comments c inner joing submissions s on s.id = c.submission_id where s.key = be88571792e7b5fb73832cc9;
+select * from comments c inner join submissions s on s.id = c.submission_id where s.key = be88571792e7b5fb73832cc9;
+select * from comments c inner join submissions s on s.id = c.submission_id where s.key = "be88571792e7b5fb73832cc9";
+select * from comments c inner join submissions s on s.id = c.submission_id where s.key = "be88571792e7b5fb73832cc9";
+select * from comments c inner join submissions s on s.id = c.submission_id where s.user_id = 27 and slug = bob and language = coffeescript;
+select * from comments c inner join submissions s on s.id = c.submission_id where s.user_id = 27 and slug = "bob" and language = "coffeescript";
+select * from comments c inner join submissions s on s.id = c.submission_id where s.key = 'be88571792e7b5fb73832cc9';
+\d comments
+select user_id, body, update_at from comments c inner join submissions s on s.id = c.submission_id where s.key = 'be88571792e7b5fb73832cc9';
+select c.user_id, c.body, c.update_at from comments c inner join submissions s on s.id = c.submission_id where s.key = 'be88571792e7b5fb73832cc9';
+select c.user_id, c.body, c.updated_at from comments c inner join submissions s on s.id = c.submission_id where s.key = 'be88571792e7b5fb73832cc9';
+\d five_a_day_counts
+select * from five_a_day_counts where user_id = 2;
+select * from five_a_day_counts where user_id = 2;
+select * from five_a_day_counts where user_id = 2;
+\d acls
+\q
+\d comments
+select user_id, submission_id, created_at from comment where user_id =2 and body LIKE 'dog';
+select user_id, submission_id, created_at from comments where user_id =2 and body LIKE 'dog';
+select user_id, submission_id, created_at from comments where user_id =2 and body = 'dog';
+select user_id, submission_id, created_at from comments where user_id =2 and created = today;
+select user_id, submission_id, created_at from comments where user_id =2 and created_at = today;
+select user_id, submission_id, created_at from comments where user_id =2 and created_at = today = '2015-09-25';
+select user_id, submission_id, created_at from comments where user_id =2 and created_at = '2015-09-25';
+select user_id, submission_id, created_at from comments where user_id =2 and created_at LIKE '2015-09-25';
+select user_id, submission_id, created_at from comments where user_id =2 and created_at ~ 2015-09-25;
+select user_id, submission_id, created_at from comments where user_id =2 and body ~ "dog";
+select user_id, submission_id, created_at from comments where user_id =2 and body ~ 'dog';
+select user_id, submission_id, created_at from comments where user_id =2 and body ~ 'dog' or body ~ 'perro';
+select * from acls where user_id IN (2, 30) order by language;
+select * from acls where user_id IN (2) order by language;
+select * from acls order by id;
+select * from acls order by user_id;
+\?
+\d users
+select * from users where master <> null;
+select * from users where mastery <> null;
+select id, username, mastery from users;
+ select distinct on (language) id, language from acls where user_id = 4;
+\q
+select * from acls where user_id = 2;
+select user_id, language, slug from acls where user_id = 2;
+select user_id, language, slug from acls where user_id = 2 order by language;
+select user_id, language, slug from acls where user_id = 30 order by language;
+ \d submissions
+select * from submissions limit 1;
+select user_id, version from submissions limit 1;
+select * from acls where user_id = 30;
+select * from acls where user_id = 30 order by language;
+\q
+select id, username from users where username ='mary';
+select id, username from users where id =30;
+\d user_exercises
+\d acls
+\q
+\d submissions
+select id, slug, language, key where slug ~ 'hello-world' order by id;
+select id, slug, language, key from submissions where slug ~ 'hello-world' order by id;
+select id, slug, language, key from submissions where slug ~ 'hello' order by id;
+select id, slug, language, key from submissions where language ~ 'scheme' order by id;
+select id, slug, language, key from submissions where language ~ 'ruby' order by id;
+select id, slug, language, key from submissions where language ~ 'swift' order by id;
+select id, slug, language, key from submissions where language ~ 'scala' order by id;
+select id, slug, language, key from submissions where language ~ 'python' order by id;
+select id, slug, language, key from submissions where language ~ 'lua' order by id;
+select id, slug, language, key from submissions where language ~ 'objective-c' order by id;
+select id, slug, language, key from submissions where language ~ 'javascript' order by id;
+select id, slug, language, key from submissions where language ~ 'elisp' order by slug;
+select id, slug, language, key from submissions where language ~ 'coffescript' order by slug;
+select id, slug, language, key from submissions where user_id = 2 order by slug;
+select user_id, id, slug, language, key from submissions where user_id = 2 order by slug;
+\d submissions
+select last from submissions limit 1;
+SELECT * FROM submissions ORDER BY id DESC LIMIT 5;
+\d submission
+\d submissions
+INSERT INTO submissions (user_id, language, slug, nit_count) VALUES
+(2, 'coffeescript', 'hello-world', 1),
+(2, 'elisp', 'hello-world', 1),
+(2, 'javascript', 'hello-world', 1),
+(2, 'lua', 'hello-world', 1),
+(2, 'objective-c', 'hello-world', 1),
+(2, 'python', 'hello-world', 1),
+(2, 'ruby', 'hello-world', 1),
+(2, 'scala', 'hello-world', 1),
+(2, 'scheme', 'hello-world', 1),
+(2, 'swift', 'hello-world', 1);
+SELECT created_at FROM submissions ORDER BY id DESC LIMIT 5;
+INSERT INTO submissions (user_id, language, slug, nit_count, create_at) VALUES
+(2, 'coffeescript', 'hello-world', 1, 2015-09-26 16:26:44),
+(2, 'elisp', 'hello-world', 1, 2015-09-26 17:26:44),
+(2, 'javascript', 'hello-world', 1, 2015-09-26 18:26:44),
+(2, 'lua', 'hello-world', 1, 2015-09-26 19:26:44),
+(2, 'objective-c', 'hello-world', 1, 2015-09-26 20:26:44),
+(2, 'python', 'hello-world', 1, 2015-09-26 21:26:44),
+(2, 'ruby', 'hello-world', 1, 2015-09-26 22:26:44),
+(2, 'scala', 'hello-world', 1, 2015-09-26 23:26:44),
+(2, 'scheme', 'hello-world', 1, 2015-09-25 16:26:44),
+(2, 'swift', 'hello-world', 1,, 2015-09-25 17:26:44);
+INSERT INTO submissions (user_id, language, slug, nit_count, create_at) VALUES
+(2, 'coffeescript', 'hello-world', 1, 2015-08-26),
+(2, 'elisp', 'hello-world', 1, 2015-08-27),
+(2, 'javascript', 'hello-world', 1, 2015-08-28),
+(2, 'lua', 'hello-world', 1, 2015-08-29),
+(2, 'objective-c', 'hello-world', 1, 2015-08-30),
+(2, 'python', 'hello-world', 1, 2015-08-31),
+(2, 'ruby', 'hello-world', 1, 2015-09-01),
+(2, 'scala', 'hello-world', 1, 2015-09-02),
+(2, 'scheme', 'hello-world', 1, 2015-09-03),
+(2, 'swift', 'hello-world', 1,, 2015-09-04);
+SELECT id, user_id FROM submissions ORDER BY id DESC LIMIT 5;
+INSERT INTO submissions (user_id, language, slug, nit_count, create_at) VALUES
+(2, 'coffeescript', 'hello-world', 1, 2015-08-26),
+(2, 'elisp', 'hello-world', 1, 2015-08-27),
+(2, 'javascript', 'hello-world', 1, 2015-08-28),
+(2, 'lua', 'hello-world', 1, 2015-08-29),
+(2, 'objective-c', 'hello-world', 1, 2015-08-30),
+(2, 'python', 'hello-world', 1, 2015-08-31),
+(2, 'ruby', 'hello-world', 1, 2015-09-01),
+(2, 'scala', 'hello-world', 1, 2015-09-02),
+(2, 'scheme', 'hello-world', 1, 2015-09-03),
+(2, 'swift', 'hello-world', 1, 2015-09-04);
+SELECT id, user_id FROM submissions ORDER BY id DESC LIMIT 5;
+INSERT INTO submissions (user_id, language, slug, nit_count, created_at) VALUES
+(2, 'coffeescript', 'hello-world', 1, 2015-08-26),
+(2, 'elisp', 'hello-world', 1, 2015-08-27),
+(2, 'javascript', 'hello-world', 1, 2015-08-28),
+(2, 'lua', 'hello-world', 1, 2015-08-29),
+(2, 'objective-c', 'hello-world', 1, 2015-08-30),
+(2, 'python', 'hello-world', 1, 2015-08-31),
+(2, 'ruby', 'hello-world', 1, 2015-09-01),
+(2, 'scala', 'hello-world', 1, 2015-09-02),
+(2, 'scheme', 'hello-world', 1, 2015-09-03),
+(2, 'swift', 'hello-world', 1, 2015-09-04);
+INSERT INTO submissions (user_id, language, slug, nit_count, created_at) VALUES
+(2, 'coffeescript', 'hello-world', 1, 2015-08-26 UTC),
+(2, 'elisp', 'hello-world', 1, 2015-08-27 UTC),
+(2, 'javascript', 'hello-world', 1, 2015-08-28 UTC),
+(2, 'lua', 'hello-world', 1, 2015-08-29 UTC),
+(2, 'objective-c', 'hello-world', 1, 2015-08-30 UTC),
+(2, 'python', 'hello-world', 1, 2015-08-31 UTC),
+(2, 'ruby', 'hello-world', 1, 2015-09-01 UTC),
+(2, 'scala', 'hello-world', 1, 2015-09-02 UTC),
+(2, 'scheme', 'hello-world', 1, 2015-09-03 UTC),
+(2, 'swift', 'hello-world', 1, 2015-09-04 UTC);
+\q
+select slug from submissions where slug ~ 'hello';
+select slug from submissions where slug ~ 'hello-world';
+select distinct on(slug) language, slug from submissions where language = 'ruby';
+select slug from submissions group by slug order by count(*) DESC limit 1;
+select slug count(slug) from submissions group by slug order by count(*) DESC limit 1;
+select slug, count(slug) from submissions group by slug order by count(*) DESC limit 1;
+select ditinct on (s.language) s.slug, s.language, s.user_id, u.username from submissions s inner join users u on s.user_id = u.id where s.slug = 'robot-name' order by u.username;
+select distinct on (s.language) s.slug, s.language, s.user_id, u.username from submissions s inner join users u on s.user_id = u.id where s.slug = 'robot-name' order by u.username;
+select distinct on (s.language) s.slug, s.language, s.user_id, u.username from submissions s inner join users u on s.user_id = u.id where s.slug = 'robot-name';
+select s.slug, s.language, s.user_id, u.username from submissions s inner join users u on s.user_id = u.id where s.slug = 'robot-name' order by u.username;
+select distinct on u.username) s.slug, s.language, s.user_id, u.username from submissions s inner join users u on s.user_id = u.id where s.slug = 'robot-name' order by u.username;
+select distinct on (u.username) s.slug, s.language, s.user_id, u.username from submissions s inner join users u on s.user_id = u.id where s.slug = 'robot-name' order by u.username;
+find id, username, mastery from users where id = 2,
+;
+find id, username, mastery from users where id = 2,;
+select id, username, mastery from users where id = 2,;
+select id, username, mastery from users where id = 2;
+\q
+select slug from acls where slug ~ 'hello-world';
+select slug from acls where slug ~ 'bob';
+select slug from user_exercises where slug ~ 'hello-world';
+select slug from user_exercises where slug ~ 'bob';
+\q
+\d
+\d comments
+\d user_exercises
+\d acls
+\d lifecycle_events
+select * from lifecycle_events limit 1;
+select * from lifecycle_events where user_id = 1;
+select * from lifecycle_events where user_id = 30;
+select * from lifecycle_events where user_id = 22;
+\d comments
+select * from users where username = 'mixolidia';
+select distinct on (user_id) user_id, count(submission_id) from submissions;
+select distinct on (user_id) user_id, group by submission_id count(*) from submissions;
+select user_id, group by submission_id count(*) from submissions;
+select user_id group by submission_id count(*) from submissions;
+select user_id from submissions group by submission_id order by count(*) from ASC;
+select user_id from submissions group by submission_id order by count(*) ASC;
+select user_id from submissions group by submission_id order by count(*) ASC;
+select user_id from submissions group by submission_id order by count(*) ASC;
+SELECT user_id
+FROM comments
+GROUP BY user_id
+ORDER BY count(*) ASC;
+select count(user_id) from comments;
+select distinct on(user_id) count(user_id) from comments;
+select distinct on (user_id) count(user_id) from comments;
+select user_id count(user_id) from comments group by user_id order by user_id ASC;
+SELECT user_id, COUNT 
+FROM comments
+GROUP BY submissions_id
+ORDER BY count(*) ASC;
+SELECT user_id
+FROM comments
+GROUP BY submissions_id
+ORDER BY count(*) ASC;
+\d comments
+SELECT user_id
+FROM comments
+GROUP BY submission_id
+ORDER BY count(*) ASC;
+SELECT user_id
+FROM comments
+GROUP BY user_id
+ORDER BY count(user_id) ASC;
+SELECT COUNT (DISTINCT user_id) FROM comments;
+SELECT COUNT (DISTINCT user_id) user_id FROM comments;
+select user_id from comments where user_id = 27;
+select user_id, submission_id from comments where user_id = 27;
+select user_id, submission_id from comments where user_id = 38;
+SELECT user_id
+FROM comments
+GROUP BY user_id
+ORDER BY count(user_id) ASC;
+select user_id, submission_id from comments where user_id = 7;
+\d comments
+exit
+\d
+SELECT user_id, COUNT (user_id) FROM submissions GROUP BY user_id;
+SELECT user_id, COUNT (user_id) FROM submissions GROUP BY user_id;
+SELECT user_id, COUNT (user_id) FROM submissions GROUP BY user_id ORDER BY user_id ASC;
+SELECT user_id, COUNT (user_id) FROM submissions GROUP BY user_id ORDER BY COUNT (*) ASC;
+SELECT user_id, COUNT (user_id) username FROM submissions INNER JOIN users on user_id = id GROUP BY user_id ORDER BY COUNT (*) ASC;
+SELECT user_id, COUNT (user_id) u.username FROM submissions INNER JOIN users u on user_id = u.id GROUP BY user_id ORDER BY COUNT (*) ASC;
+SELECT user_id, COUNT (user_id) u.username FROM submissions INNER JOIN users u on user_id = u.id GROUP BY user_id ORDER BY COUNT (*) ASC;
+SELECT user_id, COUNT (user_id) u.username FROM submissions INNER JOIN users u on user_id = u.id GROUP BY user_id ORDER BY COUNT (*) ASC
+;
+SELECT s.user_id, COUNT (s.user_id) u.username FROM submissions s INNER JOIN users u on  s.user_id = u.id GROUP BY s.user_id ORDER BY COUNT (*) ASC;
+SELECT s.user_id, COUNT (s.user_id) username FROM submissions s INNER JOIN users u on  s.user_id = u.id GROUP BY s.user_id ORDER BY COUNT (*) ASC;
+SELECT s.user_id, COUNT (s.user_id) AS comments username FROM submissions s INNER JOIN users u on  s.user_id = u.id GROUP BY s.user_id ORDER BY COUNT (*) ASC;
+SELECT s.user_id, COUNT (s.user_id) AS comments, u.username FROM submissions s INNER JOIN users u on  s.user_id = u.id GROUP BY s.user_id ORDER BY COUNT (*) ASC;
+SELECT s.user_id, COUNT (s.user_id) comments u.username FROM submissions s INNER JOIN users u on  s.user_id = u.id GROUP BY s.user_id ORDER BY COUNT (*) ASC;
+SELECT s.user_id, COUNT (s.user_id) AS comments u.username FROM submissions s INNER JOIN users u on  s.user_id = u.id GROUP BY s.user_id ORDER BY COUNT (*) ASC;
+SELECT s.user_id, COUNT (s.user_id) AS comments FROM submissions s INNER JOIN users u on  s.user_id = u.id GROUP BY s.user_id ORDER BY COUNT (*) ASC;
+SELECT s.user_id, COUNT (s.user_id) AS comments, username FROM submissions s INNER JOIN users u on  s.user_id = u.id GROUP BY s.user_id ORDER BY COUNT (*) ASC;
+SELECT u.username, s.user_id, COUNT (s.user_id) AS comments FROM submissions s INNER JOIN users u on  s.user_id = u.id GROUP BY s.user_id ORDER BY COUNT (*) ASC;
+SELECT username, s.user_id, COUNT (s.user_id) AS comments FROM submissions s INNER JOIN users u on  s.user_id = u.id GROUP BY s.user_id ORDER BY COUNT (*) ASC;
+\d username
+\d users
+SELECT s.user_id, COUNT (s.user_id) AS comments, username FROM submissions s INNER JOIN users u on  s.user_id = u.id GROUP BY s.user_id ORDER BY COUNT (*) ASC;
+SELECT user_id, COUNT (user_id) FROM submissions GROUP BY user_id ORDER BY COUNT (*) ASC;
+select id, username from users where id IN (27, 36, 17, 42, 9, 15, 14, 45, 48, 28, 6, 24)
+;
+select * from acls where user_id = 27;
+select * from acls where user_id = 30;
+\q
+\q
+select * from users where id in (9,11);
+\s submissions
